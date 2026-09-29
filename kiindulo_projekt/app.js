@@ -82,6 +82,8 @@ form.addEventListener("submit", function (event) {
   resetButton.addEventListener("click", function () {
     form.reset();
     renderProfile(defaultProfile);
+
+    const themeButton = document.querySelector("#themeButton");
   
     updateCount = 0;
     updateCountOutput.textContent = String(updateCount);
@@ -90,3 +92,12 @@ form.addEventListener("submit", function (event) {
   });
 
 // 5. A témaváltó eseménykezelő csak a feature/sotet-tema ágon készül el.
+themeButton.addEventListener("click", function () {
+    const darkThemeEnabled = document.body.classList.toggle("dark-theme");
+  
+    themeButton.setAttribute("aria-pressed", String(darkThemeEnabled));
+    themeButton.textContent = darkThemeEnabled ? "Világos téma" : "Sötét téma";
+    showStatus(
+      darkThemeEnabled ? "A sötét téma bekapcsolva." : "A világos téma bekapcsolva."
+    );
+  });

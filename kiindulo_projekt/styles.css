@@ -170,6 +170,13 @@ button:focus-visible {
   background: var(--color-surface-muted);
 }
 
+.button--theme {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: transparent;
+}
+
+
 .status {
   min-height: 1.5rem;
   margin: 0.9rem 0 0;
@@ -308,4 +315,20 @@ code {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+
+body.dark-theme {
+  color-scheme: dark;
+  --color-bg: #0f172a;
+  --color-surface: #182338;
+  --color-surface-muted: #24324a;
+  --color-text: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-primary: #818cf8;
+  --color-primary-hover: #6366f1;
+  --color-border: #41506a;
+  --color-success: #86efac;
+  --color-error: #fda4af;
+  --shadow: 0 18px 45px rgb(0 0 0 / 28%);
 }
