@@ -28,12 +28,65 @@ const updateCountOutput = document.querySelector("#updateCount");
 const statusMessage = document.querySelector("#statusMessage");
 
 // 2. A program változó állapota következik itt.
-
+const defaultProfile = {
+    name: "Kódoló Kata",
+    role: "Junior frontend fejlesztő",
+    technology: "JavaScript"
+  };
+  
+  let updateCount = 0;
 
 // 3. A kisebb, egy feladatú függvények következnek itt.
+function readProfileFromForm() {
+    return {
+      name: nameInput.value.trim(),
+      role: roleInput.value.trim(),
+      technology: technologyInput.value.trim()
+    };
+  }
 
+  function isProfileValid(profile) {
+    return profile.name !== "" &&
+      profile.role !== "" &&
+      profile.technology !== "";
+  }
+
+  function renderProfile(profile) {
+    cardName.textContent = profile.name;
+    cardRole.textContent = profile.role;
+    cardTechnology.textContent = profile.technology;
+  }
+
+  function showStatus(message, isError = false) {
+    statusMessage.textContent = message;
+    statusMessage.classList.toggle("status--error", isError);
+  }
 
 // 4. Az eseménykezelők következnek itt.
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+  
+    const profile = readProfileFromForm();
+  
+    if (!isProfileValid(profile)) {
+      showStatus("Minden mező kitöltése kötelező.", true);
+      return;
+    }
+  
+    renderProfile(profile);
+    updateCount += 1;
+    updateCountOutput.textContent = String(updateCount);
+    showStatus("A profil sikeresen frissült.");
+  });
 
+  resetButton.addEventListener("click", function () {
+    form.reset();
+    renderProfile(defaultProfile);
+  
+    updateCount = 0;
+    updateCountOutput.textContent = String(updateCount);
+    showStatus("Az alapértékek visszaálltak.");
+    nameInput.focus();
+  });
 
 // 5. A témaváltó eseménykezelő csak a feature/sotet-tema ágon készül el.
