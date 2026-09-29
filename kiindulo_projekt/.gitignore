@@ -1,0 +1,10 @@
+# Operációs rendszer által létrehozott fájlok
+.DS_Store
+Thumbs.db
+
+# Helyi szerkesztőbeállítások
+.vscode/
+.idea/
+
+# Ha később Node.js-eszköz kerülne a projektbe
+node_modules/

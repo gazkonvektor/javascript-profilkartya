@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="JavaScript és Git alapozó profilkártya mini-projekt."
+    >
+    <title>Profilkártya-szerkesztő</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <p class="eyebrow">JavaScript + Git mini-projekt</p>
+        <h1>Profilkártya-szerkesztő</h1>
+        <p class="lead">
+          Töltsd ki az űrlapot, és jelenítsd meg az adatokat a kártyán!
+        </p>
+      </div>
+    </header>
+
+    <main class="container page-layout">
+      <section class="panel" aria-labelledby="editorTitle">
+        <h2 id="editorTitle">Profil szerkesztése</h2>
+        <p class="section-intro">
+          A mezők már elkészültek. A működést az <code>app.js</code> fájlban
+          fogod megírni.
+        </p>
+
+        <form id="profileForm">
+          <div class="form-field">
+            <label for="displayName">Megjelenő név</label>
+            <input
+              id="displayName"
+              name="displayName"
+              type="text"
+              value="Kódoló Kata"
+              maxlength="40"
+              required
+            >
+          </div>
+
+          <div class="form-field">
+            <label for="role">Szerepkör vagy tanulási cél</label>
+            <input
+              id="role"
+              name="role"
+              type="text"
+              value="Junior frontend fejlesztő"
+              maxlength="60"
+              required
+            >
+          </div>
+
+          <div class="form-field">
+            <label for="technology">Kedvenc technológia</label>
+            <select id="technology" name="technology" required>
+              <option value="HTML">HTML</option>
+              <option value="CSS">CSS</option>
+              <option value="JavaScript" selected>JavaScript</option>
+              <option value="Git">Git</option>
+            </select>
+          </div>
+
+          <div class="button-row">
+            <button class="button button--primary" type="submit">
+              Profil frissítése
+            </button>
+            <button
+              class="button button--secondary"
+              id="resetButton"
+              type="button"
+            >
+              Alapértékek
+            </button>
+          </div>
+
+          <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="panel preview" aria-labelledby="previewTitle">
+        <div class="preview-heading">
+          <div>
+            <p class="eyebrow">Élő előnézet</p>
+            <h2 id="previewTitle">A profilod</h2>
+          </div>
+          <span class="counter" title="Sikeres frissítések száma">
+            Frissítések: <output id="updateCount">0</output>
+          </span>
+        </div>
+
+        <article class="profile-card" aria-label="Profilkártya előnézete">
+          <div class="avatar" aria-hidden="true">JS</div>
+          <div>
+            <h3 id="cardName">Kódoló Kata</h3>
+            <p id="cardRole" class="role">Junior frontend fejlesztő</p>
+            <p class="technology-line">
+              Kedvenc technológia:
+              <strong id="cardTechnology">JavaScript</strong>
+            </p>
+          </div>
+        </article>
+
+        <aside class="test-hint" aria-label="Tesztelési emlékeztető">
+          <strong>Teszteld:</strong> módosíts minden mezőt, küldd el az űrlapot,
+          majd próbáld ki az Alapértékek gombot is.
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Gyakorlóprojekt – HTML, CSS, JavaScript, Git és GitHub</p>
+      </div>
+    </footer>
+  </body>
+</html>
